@@ -1,6 +1,18 @@
 import "./style.css";
 import { Header } from "./components/header/header";
 import { Table } from "./components/table/table";
+import { AddTaskModal } from "./components/modal/AddTaskModal";
 
 const app = document.getElementById("app");
-app.append(Header(), Table());
+
+const header = Header();
+const table = Table();
+const modal = AddTaskModal((task) => {
+  table.addRow(task);
+});
+
+header.querySelector("#plusBtn").addEventListener("click", () => {
+  modal.show();
+});
+
+app.append(header, modal, table);

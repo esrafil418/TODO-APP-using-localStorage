@@ -12,7 +12,7 @@ export function Header() {
         children: [
           El({
             element: "img",
-            src: "../../public/icons/bars.png",
+            src: "/icons/bars.png",
             className: "w-6 h-6 lg:h-8 lg:w-8",
           }),
           El({
@@ -32,26 +32,35 @@ export function Header() {
             className: "flex hidden lg:block md:block",
             children: [
               El({
-                element: "i",
+                element: "div",
                 className:
-                  "fa-solid fa-magnifying-glass text-white bg-[#7926ed] p-2 rounded-l-sm",
+                  "fa-solid fa-magnifying-glass text-white bg-[#7926ed] p-2 rounded-l-sm cursor-pointer",
               }),
               El({
                 element: "input",
                 className:
-                  "p-1 bg-[#7926ed] outline-none rounded-r-sm text-gray-300",
+                  "p-1 bg-[#7926ed] outline-none rounded-r-sm text-gray-300 ",
                 placeholder: "Search",
               }),
             ],
           }),
           El({
-            element: "i",
-            className: "fa-solid fa-filter text-white text-xl xl:text-2xl mx-2",
+            element: "button",
+            className:
+              "fa-solid fa-filter text-white text-xl xl:text-2xl mx-2 cursor-pointer",
           }),
           El({
-            element: "i",
+            element: "button",
+            id: "plusBtn",
+            type: "button",
             className:
-              "fa-solid fa-plus bg-white text-[#6200ea] rounded-xs p-1 xl:h-[25px] text-sm xl:text-xl",
+              "bg-white text-[#6200ea] rounded-xs p-1 xl:h-[25px] text-sm xl:text-xl cursor-pointer flex items-center justify-center",
+            children: [
+              El({
+                element: "i",
+                className: "fa-solid fa-plus",
+              }),
+            ],
           }),
         ],
       }),
