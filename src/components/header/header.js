@@ -3,31 +3,33 @@ import { El } from "../../utils/el";
 export function Header() {
   return El({
     element: "div",
-    className: "w-full bg-[#6200ea] h-12 flex justify-between items-center p-2",
+    className:
+      "w-full bg-[#6200ea] h-12 flex justify-between items-center p-2 sm:p-1 xs:p-1",
     children: [
       El({
         element: "div",
-        className: "flex gap-2",
+        className: "flex gap-1 sm:gap-2 lg:gap-2",
         children: [
           El({
             element: "img",
             src: "../../public/icons/bars.png",
-            className: "w-8 h-8",
+            className: "w-6 h-6 lg:h-8 lg:w-8",
           }),
           El({
             element: "div",
-            className: "text-white text-lg",
+            className:
+              "text-white sm:text-sm md:text-[16px] lg:text-lg mx-4 lg:mx-1",
             innerText: "My To-Do Tasks",
           }),
         ],
       }),
       El({
         element: "div",
-        className: "flex p-2 gap-5 justify-center items-center",
+        className: "flex p-2 gap-1 justify-center items-center xl:gap-5",
         children: [
           El({
             element: "div",
-            className: "",
+            className: "flex hidden lg:block md:block",
             children: [
               El({
                 element: "i",
@@ -44,12 +46,12 @@ export function Header() {
           }),
           El({
             element: "i",
-            className: "fa-solid fa-filter text-white text-2xl",
+            className: "fa-solid fa-filter text-white text-xl xl:text-2xl mx-2",
           }),
           El({
             element: "i",
             className:
-              "fa-solid fa-plus bg-white text-[#6200ea] rounded-xs p-1 h-[25px] text-xl",
+              "fa-solid fa-plus bg-white text-[#6200ea] rounded-xs p-1 xl:h-[25px] text-sm xl:text-xl",
           }),
         ],
       }),
