@@ -1,4 +1,5 @@
 import { El } from "../../utils/el";
+import { loadTasks } from "../../modules/storage";
 
 export function Table() {
   const table = El({
@@ -107,6 +108,9 @@ export function Table() {
 
     table.querySelector("#taskTableBody").appendChild(row);
   };
+
+  const savedTasks = loadTasks();
+  savedTasks.forEach((task) => table.addRow(task));
 
   return table;
 }
