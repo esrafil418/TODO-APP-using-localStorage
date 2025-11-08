@@ -14,13 +14,13 @@ export function Table() {
           El({
             // creat a row
             element: "tr",
-            className: "text-black",
+            className: "text-black text-sm",
             children: ["Task", "Priority", "Status", "Deadline", "Actions"].map(
               (head) =>
                 El({
                   element: "th",
                   innerText: head,
-                  className: "p-2 border  border-gray-300",
+                  className: "p-2 border  border-gray-300 text-sm",
                 })
             ),
           }),
@@ -84,7 +84,7 @@ export function Table() {
                 }),
               ],
             }),
-            // edite task
+            // edit task
             El({
               element: "button",
               className: "cursor-pointer",
@@ -97,18 +97,8 @@ export function Table() {
                 document.getElementById("status").value = task.status;
                 document.getElementById("deadline").value = task.deadline;
                 document.getElementById("details").value = task.details || "";
-                [
-                  "taskName",
-                  "priority",
-                  "status",
-                  "deadline",
-                  "details",
-                ].forEach((id) => {
-                  document.getElementById(id).readOnly = false;
-                  document.getElementById(id).disabled = false;
-                });
 
-                modal.setAttribute("data-edit-id", task.id);
+                modal.dataset.editId = task.id;
               },
               children: [
                 El({
@@ -130,13 +120,6 @@ export function Table() {
                 document.getElementById("status").value = task.status;
                 document.getElementById("deadline").value = task.deadline;
                 document.getElementById("details").value = task.details || "";
-
-                // read only
-                document.getElementById("taskName").readOnly = true;
-                document.getElementById("priority").disabled = true;
-                document.getElementById("status").disabled = true;
-                document.getElementById("deadline").disabled = true;
-                document.getElementById("details").readOnly = true;
               },
               children: [
                 El({

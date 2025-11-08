@@ -136,16 +136,25 @@ export function AddTaskModal(onSubmit) {
 
     if (!taskName) return;
 
-    const newTask = {
-      id: Date.now(),
+    const task = {
       taskName,
       priority,
       status,
       deadline,
       details,
     };
-    onSubmit(newTask);
+
+    const editId = modal.dataset.editId;
+    if (editId) {
+      task.id = editId;
+    } else {
+      task.id = Date.now().toString();
+    }
+
+    onSubmit(task, !!editId);
     modal.hide();
+    modal.dataset.editId = "";
+    document.getElementById("addTask").innerText = "Add Task";
     e.target.reset();
   });
 

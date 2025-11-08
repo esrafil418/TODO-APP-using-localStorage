@@ -17,10 +17,10 @@ export function removeTask(id) {
 }
 
 export function updateTask(updatedTask) {
-  let tasks = JSON.parse(localStorage.getItem("notes")) || [];
+  let tasks = JSON.parse(localStorage.getItem("tasks")) || [];
   const index = tasks.findIndex((t) => t.id == updatedTask.id);
   if (index !== -1) {
     tasks[index] = updatedTask;
-    localStorage.setItem("notes", JSON.stringify(tasks));
+    localStorage.setItem("tasks", JSON.stringify(tasks));
   }
 }
