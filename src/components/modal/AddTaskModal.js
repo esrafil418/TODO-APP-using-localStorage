@@ -98,7 +98,7 @@ export function AddTaskModal(onSubmit) {
                 placeholder: "Deadline",
                 restAttrs: {
                   "data-jdp": "",
-                  "data-min-date": "today",
+                  "date-jdp-min-date": "today",
                 },
                 className:
                   "border border-gray-300 rounded-md p-2 focus:outline-[#6200ea] text-center text-red-700 font-bold cursor-pointer",
@@ -159,7 +159,7 @@ export function AddTaskModal(onSubmit) {
   });
 
   setTimeout(() => {
-    jalaliDatepicker.startWatch();
+    jalaliDatepicker.startWatch({minDate: "today"});
   }, 0);
 
   return modal;
